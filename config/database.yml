@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: pictowall
+  host: postgres
+
+development:
+  <<: *default
+  database: pictowall_development
+
+test:
+  <<: *default
+  database: pictowall_test
+
+production:
+  <<: *default
+  database: pictowall_production
+  username: pictowall
+  password:
